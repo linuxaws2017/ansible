@@ -1,0 +1,11 @@
+---
+- hosts: appgroup
+  user: ansadm
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: 1. Install latest version HTTP/Apache RPMs
+    yum: name=httpd state=present
+  - name: 2. Start http service
+    service: name=httpd state=started
+
